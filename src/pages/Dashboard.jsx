@@ -20,6 +20,41 @@ const Dashboard = () => {
         }
     }, [currentVehicle]);
 
+    // Empty State
+    if (!currentVehicle) {
+        return (
+            <div className="container" style={{ paddingBottom: '6rem', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '80vh' }}>
+                <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--accent-primary)' }}>Welcome to EV Mate</h1>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
+                    Track your Electric Vehicle's performance, charging, and expenses efficiently.
+                </p>
+
+                <div style={{ fontSize: '4rem', marginBottom: '2rem' }}>🚗⚡</div>
+
+                <button
+                    className="btn btn-primary"
+                    onClick={() => navigate('/onboarding')}
+                    style={{ margin: '0 auto', maxWidth: '300px' }}
+                >
+                    + Add Your First Vehicle
+                </button>
+
+                <button
+                    className="btn"
+                    onClick={logout}
+                    style={{
+                        marginTop: '2rem',
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'var(--text-secondary)'
+                    }}
+                >
+                    Sign Out
+                </button>
+            </div>
+        );
+    }
+
     if (!stats) return <div className="container">Loading...</div>;
 
     const currentStats = stats[period];
