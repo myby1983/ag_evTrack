@@ -77,7 +77,7 @@ Use the same phone, browser/profile, and site URL where the records were entered
 4. Check the correct vehicle and review History's Trips, Charging, and Maintenance tabs. Confirm a few old and recent entries and compare dashboard totals with your previous figures.
 5. In Garage, export another backup after confirming everything is present. Keep both the before and after backups.
 
-If you signed in without ticking the migration box and see **Add New Vehicle**, do not recreate the car or re-enter logs. Open `#/login` after the site URL, or sign out from Garage if available, tick the migration option on the login page, and sign in again. If the app redirects you away from `#/login` while signed in with no garage, use Garage's sign-out after adding no records only if available; otherwise ask for help before changing browser storage.
+If you signed in without ticking the migration box and see **Add New Vehicle**, do not recreate the car or re-enter logs. Press **Sign out / Return to sign-in** below the form, tick the migration option on the login page, and sign in again.
 
 If the migration option is absent, first confirm the same browser/profile and URL. Avoid importing or clearing anything until locating the original data. Import replaces all app records. Signing into the same Google account on a different device does not transfer records; backups are still required for manual device transfers.
 

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useVehicle } from '../context/VehicleContext';
+import { useAuth } from '../context/AuthContext';
 import { EV_MASTER_DATA } from '../services/masterData';
 
 const VehicleForm = () => {
     const navigate = useNavigate();
     const { addVehicle } = useVehicle();
+    const { logout } = useAuth();
 
     const [formData, setFormData] = useState({
         brand: '',
@@ -159,6 +161,12 @@ const VehicleForm = () => {
                         Save Vehicle
                     </button>
                 </form>
+                <button type="button" className="btn btn-full" style={{ marginTop: '1rem' }} onClick={async () => {
+                    await logout();
+                    navigate('/login', { replace: true });
+                }}>
+                    Sign out / Return to sign-in
+                </button>
             </div>
         </div>
     );
