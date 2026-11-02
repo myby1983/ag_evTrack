@@ -21,8 +21,12 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm install
+      - name: Test authentication and migration
+        run: npm run test:auth
       - name: Build
         run: npm run build
+        env:
+          VITE_GOOGLE_CLIENT_ID: ${{ vars.VITE_GOOGLE_CLIENT_ID || '136435579018-e4gq55bd7fn6i321mldk11n571ar2uia.apps.googleusercontent.com' }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

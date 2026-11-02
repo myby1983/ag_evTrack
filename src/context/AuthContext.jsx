@@ -1,24 +1,15 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { authService } from '../services/authService';
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState(() => authService.getCurrentUser());
+    const loading = false;
 
-    useEffect(() => {
-        // Check for existing session
-        const currentUser = authService.getCurrentUser();
-        if (currentUser) {
-            setUser(currentUser);
-        }
-        setLoading(false);
-    }, []);
-
-    const login = async () => {
+    const login = async (response, options) => {
         try {
-            const userData = await authService.login();
+            const userData = await authService.login(response, options);
             setUser(userData);
             return userData;
         } catch (error) {
